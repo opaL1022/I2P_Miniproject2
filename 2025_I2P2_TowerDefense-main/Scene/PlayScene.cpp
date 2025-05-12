@@ -25,11 +25,11 @@
 #include "UI/Animation/Plane.hpp"
 #include "UI/Component/Label.hpp"
 
-// TODO HACKATHON-4 (1/3): Trace how the game handles keyboard input.
-// TODO HACKATHON-4 (2/3): Find the cheat code sequence in this file.
-// TODO HACKATHON-4 (3/3): When the cheat code is entered, a plane should be spawned and added to the scene.
-// TODO HACKATHON-5 (1/4): There's a bug in this file, which crashes the game when you win. Try to find it.
-// TODO HACKATHON-5 (2/4): The "LIFE" label are not updated when you lose a life. Try to fix it.
+// DONE HACKATHON-4 (1/3): Trace how the game handles keyboard input.
+// DONE HACKATHON-4 (2/3): Find the cheat code sequence in this file.
+// DONE HACKATHON-4 (3/3): When the cheat code is entered, a plane should be spawned and added to the scene.
+// DONE HACKATHON-5 (1/4): There's a bug in this file, which crashes the game when you win. Try to find it.
+// DONE HACKATHON-5 (2/4): The "LIFE" label are not updated when you lose a life. Try to fix it.
 
 bool PlayScene::DebugMode = false;
 const std::vector<Engine::Point> PlayScene::directions = { Engine::Point(-1, 0), Engine::Point(0, -1), Engine::Point(1, 0), Engine::Point(0, 1) };
@@ -161,7 +161,7 @@ void PlayScene::Update(float deltaTime) {
             case 1:
                 EnemyGroup->AddNewObject(enemy = new SoldierEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
                 break;
-            // TODO HACKATHON-3 (2/3): Add your new enemy here.
+            // DONE HACKATHON-3 (2/3): Add your new enemy here.
             case 2:
                 EnemyGroup->AddNewObject(enemy = new PlaneEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
                 break;

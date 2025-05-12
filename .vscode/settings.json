@@ -5,5 +5,69 @@
         "functional": "cpp",
         "list": "cpp",
         "string": "cpp"
+    },
+    "todo-tree.general.tags":
+    [
+        "TODO",
+        "DONE",
+        "FIXME",
+        "TAG",
+        "TEST",
+        "XXX"
+    ],
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.defaultHighlight":
+    {
+        "foreground": "black",
+        "background": "yellow",
+        "icon": "check",
+        "rulerColour": "yellow",
+        "type": "tag",
+        "iconColour": "yellow"
+    },
+    "todo-tree.highlights.customHighlight": 
+    {
+        "TODO":
+        {
+            "icon": "alert",
+            "background": "#c9c552",
+            "rulerColour": "#c9c552",
+            "iconColour": "#c9c552",
+        },
+        "DONE":
+        {
+            "icon": "check",
+            "background": "#5eec95",
+            "rulerColour": "#5eec95",
+            "iconColour": "#5eec95",
+        },
+        "FIXME":
+        {
+            "icon": "bug",
+            "background": "#eb5c5c",
+            "rulerColour": "#eb5c5c",
+            "iconColour": "#eb5c5c",
+        },
+        "TAG":
+        {
+            "icon": "tag",
+            "background": "#38b2f4",
+            "rulerColour": "#38b2f4",
+            "iconColour": "#38b2f4",
+        },
+        "TEST":
+        {
+            "icon": "flame",
+            "background": "#df7be6",
+            "rulerColour": "#df7be6",
+            "iconColour": "#df7be6",
+        },
+        "XXX":
+        {
+            "icon": "version",
+            "background": "#d65d8e",
+            "rulerColour": "#d65d8e",
+            "iconColour": "#d65d8e",
+        },
     }
 }
