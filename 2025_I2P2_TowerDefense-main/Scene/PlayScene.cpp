@@ -439,6 +439,7 @@ bool PlayScene::CheckSpaceValid(int x, int y) {
     return true;
 }
 std::vector<std::vector<int>> PlayScene::CalculateBFSDistance() {
+    Engine::LOG(Engine::INFO) << "Calculate BFS distance.";
     // Reverse BFS to find path.
     std::vector<std::vector<int>> map(MapHeight, std::vector<int>(std::vector<int>(MapWidth, -1)));
     std::queue<Engine::Point> que;
@@ -448,12 +449,28 @@ std::vector<std::vector<int>> PlayScene::CalculateBFSDistance() {
         return map;
     que.push(Engine::Point(MapWidth - 1, MapHeight - 1));
     map[MapHeight - 1][MapWidth - 1] = 0;
+    const int dx[4] = {1, 0, -1, 0};
+    const int dy[4] = {0, -1, 0, 1};
     while (!que.empty()) {
         Engine::Point p = que.front();
         que.pop();
         // TODO PROJECT-1 (1/1): Implement a BFS starting from the most right-bottom block in the map.
         //               For each step you should assign the corresponding distance to the most right-bottom block.
         //               mapState[y][x] is TILE_DIRT if it is empty.
+        for(int i = 0; i < 4; i++)
+        {
+            int x = p.x + dx[i];
+            int y = p.y + dy[i];
+            if(x >= 0 && x < MapWidth && y >= 0 && y < MapHeight)
+            {
+                if(mapState[y][x] == TILE_DIRT && map[y][x] == -1)
+                {
+                    map[y][x] = map[p.y][p.x] + 1;
+                    que.push(Engine::Point(x, y));
+                    //Engine::LOG(Engine::DEBUGGING) << "x: " << x << ", y: " << y << ", distance: " << map[y][x];
+                }
+            }
+        }
     }
     return map;
 }

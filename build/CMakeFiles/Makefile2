@@ -53,7 +53,7 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\white\Desktop\projects\2025_I2P2_TowerDefense-main\2025_I2P2_TowerDefense-main
+CMAKE_SOURCE_DIR = C:\Users\white\Documents\GitHub\I2P_Miniproject2\2025_I2P2_TowerDefense-main
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = C:\Users\white\Documents\GitHub\I2P_Miniproject2\build

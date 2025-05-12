@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/white/Desktop/projects/2025_I2P2_TowerDefense-main/2025_I2P2_TowerDefense-main
+# Install script for directory: C:/Users/white/Documents/GitHub/I2P_Miniproject2/2025_I2P2_TowerDefense-main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
