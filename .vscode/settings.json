@@ -1,0 +1,9 @@
+{
+    "cmake.sourceDirectory": "C:/Users/white/Desktop/projects/2025_I2P2_TowerDefense-main/2025_I2P2_TowerDefense-main",
+    "todo-tree.tree.showBadges": false,
+    "files.associations": {
+        "functional": "cpp",
+        "list": "cpp",
+        "string": "cpp"
+    }
+}

@@ -1,0 +1,3 @@
+C:/Users/white/Documents/GitHub/I2P_Miniproject2/build/CMakeFiles/2025_I2P2_TowerDefense.dir
+C:/Users/white/Documents/GitHub/I2P_Miniproject2/build/CMakeFiles/edit_cache.dir
+C:/Users/white/Documents/GitHub/I2P_Miniproject2/build/CMakeFiles/rebuild_cache.dir
