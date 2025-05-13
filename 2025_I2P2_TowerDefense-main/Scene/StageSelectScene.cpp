@@ -9,6 +9,7 @@
 #include "Engine/Resources.hpp"
 #include "PlayScene.hpp"
 #include "StageSelectScene.hpp"
+#include "ScoreBoardScene.hpp"
 #include "UI/Component/ImageButton.hpp"
 #include "UI/Component/Label.hpp"
 #include "UI/Component/Slider.hpp"
@@ -24,15 +25,24 @@ void StageSelectScene::Initialize() {
     btn->SetOnClickCallback(std::bind(&StageSelectScene::PlayOnClick, this, 1));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Stage 1", "pirulen.ttf", 48, halfW, halfH / 2, 0, 0, 0, 255, 0.5, 0.5));
+    
     btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 100, 400, 100);
     btn->SetOnClickCallback(std::bind(&StageSelectScene::PlayOnClick, this, 2));
     AddNewControlObject(btn);
     AddNewObject(new Engine::Label("Stage 2", "pirulen.ttf", 48, halfW, halfH / 2 + 150, 0, 0, 0, 255, 0.5, 0.5));
-    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 400, 400, 100);
+
+    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 200, halfH / 2 + 250, 400, 100); 
     btn->SetOnClickCallback(std::bind(&StageSelectScene::BackOnClick, this, 3));
     AddNewControlObject(btn);
-    AddNewObject(new Engine::Label("BACK", "pirulen.ttf", 48, halfW, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
+    AddNewObject(new Engine::Label("BACK", "pirulen.ttf", 48, halfW, halfH / 2 + 300, 0, 0, 0, 255, 0.5, 0.5));
 
+    btn = new Engine::ImageButton("stage-select/dirt.png", "stage-select/floor.png", halfW - 250, halfH / 2 + 400, 500, 100);    
+    btn->SetOnClickCallback(std::bind(&StageSelectScene::ScoreBoardOnClick, this, 4));
+    AddNewControlObject(btn);
+    AddNewObject(new Engine::Label("SCOREBOARD", "pirulen.ttf", 48, halfW, halfH / 2 + 450, 0, 0, 0, 255, 0.5, 0.5));
+
+    
+    
     // Not safe if release resource while playing, however we only free while change scene, so it's fine.
     bgmInstance = AudioHelper::PlaySample("select.ogg", true, AudioHelper::BGMVolume);
 }
@@ -49,6 +59,7 @@ void StageSelectScene::PlayOnClick(int stage) {
     scene->MapId = stage;
     Engine::GameEngine::GetInstance().ChangeScene("play");
 }
-void StageSelectScene::ScoreboardOnClick() {
-    Engine::GameEngine::GetInstance().ChangeScene("scoreboard-scene");
+//DONE add an entrance to the scoreboard scene
+void StageSelectScene::ScoreBoardOnClick(int stage) {
+    Engine::GameEngine::GetInstance().ChangeScene("scoreboard");
 }
