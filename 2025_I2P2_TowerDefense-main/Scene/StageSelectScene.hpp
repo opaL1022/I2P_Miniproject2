@@ -14,7 +14,7 @@ public:
     void Initialize() override;
     void Terminate() override;
     void PlayOnClick(int stage);
-    void ScoreboardOnClick();
+    void ScoreBoardOnClick(int stage);
     void BackOnClick(int stage);
 };
 
