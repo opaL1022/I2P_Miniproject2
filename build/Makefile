@@ -56,7 +56,7 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\white\Desktop\projects\2025_I2P2_TowerDefense-main\2025_I2P2_TowerDefense-main
+CMAKE_SOURCE_DIR = C:\Users\white\Documents\GitHub\I2P_Miniproject2\2025_I2P2_TowerDefense-main
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = C:\Users\white\Documents\GitHub\I2P_Miniproject2\build
@@ -632,6 +632,30 @@ Scene/PlayScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\2025_I2P2_TowerDefense.dir\build.make CMakeFiles/2025_I2P2_TowerDefense.dir/Scene/PlayScene.cpp.s
 .PHONY : Scene/PlayScene.cpp.s
 
+Scene/ScoreBoardScene.obj: Scene/ScoreBoardScene.cpp.obj
+.PHONY : Scene/ScoreBoardScene.obj
+
+# target to build an object file
+Scene/ScoreBoardScene.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2025_I2P2_TowerDefense.dir\build.make CMakeFiles/2025_I2P2_TowerDefense.dir/Scene/ScoreBoardScene.cpp.obj
+.PHONY : Scene/ScoreBoardScene.cpp.obj
+
+Scene/ScoreBoardScene.i: Scene/ScoreBoardScene.cpp.i
+.PHONY : Scene/ScoreBoardScene.i
+
+# target to preprocess a source file
+Scene/ScoreBoardScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2025_I2P2_TowerDefense.dir\build.make CMakeFiles/2025_I2P2_TowerDefense.dir/Scene/ScoreBoardScene.cpp.i
+.PHONY : Scene/ScoreBoardScene.cpp.i
+
+Scene/ScoreBoardScene.s: Scene/ScoreBoardScene.cpp.s
+.PHONY : Scene/ScoreBoardScene.s
+
+# target to generate assembly for a file
+Scene/ScoreBoardScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2025_I2P2_TowerDefense.dir\build.make CMakeFiles/2025_I2P2_TowerDefense.dir/Scene/ScoreBoardScene.cpp.s
+.PHONY : Scene/ScoreBoardScene.cpp.s
+
 Scene/SettingsScene.obj: Scene/SettingsScene.cpp.obj
 .PHONY : Scene/SettingsScene.obj
 
@@ -1088,6 +1112,9 @@ help:
 	@echo ... Scene/PlayScene.obj
 	@echo ... Scene/PlayScene.i
 	@echo ... Scene/PlayScene.s
+	@echo ... Scene/ScoreBoardScene.obj
+	@echo ... Scene/ScoreBoardScene.i
+	@echo ... Scene/ScoreBoardScene.s
 	@echo ... Scene/SettingsScene.obj
 	@echo ... Scene/SettingsScene.i
 	@echo ... Scene/SettingsScene.s
