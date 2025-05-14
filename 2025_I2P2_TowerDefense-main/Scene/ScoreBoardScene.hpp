@@ -8,7 +8,15 @@
 
 class ScoreBoardScene final : public Engine::IScene {
 private:
+    Group *UIGroup;
+    int halfW;
+    int halfH;
+    const int pagesize = 5;
+    int curpage;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
+    std::vector<std::string> names;
+    std::vector<std::string> scores;
+    std::vector<Engine::Label *> labels;
 
 public:
     explicit ScoreBoardScene() = default;

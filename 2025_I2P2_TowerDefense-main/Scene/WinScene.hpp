@@ -7,6 +7,7 @@ class WinScene final : public Engine::IScene {
 private:
     float ticks;
     ALLEGRO_SAMPLE_ID bgmId;
+    Engine::Label *textbox;
 
 public:
     explicit WinScene() = default;
@@ -14,6 +15,8 @@ public:
     void Terminate() override;
     void Update(float deltaTime) override;
     void BackOnClick(int stage);
+    void TextBoxOnClick(int stage);
+    void OnKeyDown(int keyCode) override;
 };
 
 #endif   // WINSCENE_HPP
