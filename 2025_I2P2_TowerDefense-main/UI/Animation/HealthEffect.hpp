@@ -1,5 +1,5 @@
-#ifndef EXPLOSIONEFFECT_HPP
-#define EXPLOSIONEFFECT_HPP
+#ifndef HEALTHEFFECT_HPP
+#define HEALTHEFFECT_HPP
 #include <allegro5/bitmap.h>
 #include <memory>
 #include <vector>
@@ -8,7 +8,7 @@
 
 class PlayScene;
 
-class ExplosionEffect : public Engine::Sprite {
+class HealthEffect : public Engine::Sprite {
 protected:
     PlayScene *getPlayScene();
     float timeTicks;
@@ -16,7 +16,7 @@ protected:
     float timeSpan = 0.5;
 
 public:
-    ExplosionEffect(float x, float y);
+    HealthEffect(float x, float y);
     void Update(float deltaTime) override;
 };
 #endif

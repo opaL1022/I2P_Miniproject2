@@ -86,6 +86,8 @@ add_executable(2025_I2P2_TowerDefense
     UI/Animation/DirtyEffect.hpp
     UI/Animation/ExplosionEffect.cpp
     UI/Animation/ExplosionEffect.hpp
+    UI/Animation/HealthEffect.cpp
+    UI/Animation/HealthEffect.hpp
     UI/Animation/Plane.cpp
     UI/Animation/Plane.hpp
 

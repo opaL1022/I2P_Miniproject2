@@ -6,7 +6,7 @@
 #include "Engine/Group.hpp"
 #include "BossEnemy.hpp"
 #include "Scene/PlayScene.hpp"
-#include "UI/Animation/ExplosionEffect.hpp"
+#include "UI/Animation/HealthEffect.hpp"
 #include "UI/Animation/DirtyEffect.hpp"
 
 BossEnemy::BossEnemy(int x, int y)
@@ -45,7 +45,7 @@ void BossEnemy::Heal()
     for(auto &it : AllianceGroup->GetObjects())
     {
         Engine::Point target = it->Position;
-        scene->EffectGroup->AddNewObject(new ExplosionEffect(target.x, target.y));
+        scene->EffectGroup->AddNewObject(new HealthEffect(target.x, target.y));
         dynamic_cast<Enemy*>(it)->Hit(-healamt);
     }
 }
