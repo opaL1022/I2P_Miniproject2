@@ -1,4 +1,4 @@
-//TODO Define the ScoreBoardScene
+//DONE Define the ScoreBoardScene
 #ifndef SCOREBOARD_HPP
 #define SCOREBOARD_HPP
 #include <memory>
@@ -14,8 +14,7 @@ private:
     const int pagesize = 5;
     int curpage;
     std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE> bgmInstance;
-    std::vector<std::string> names;
-    std::vector<std::string> scores;
+    std::vector<std::pair<std::string,std::string>> name_scores;
     std::vector<Engine::Label *> labels;
 
 public:

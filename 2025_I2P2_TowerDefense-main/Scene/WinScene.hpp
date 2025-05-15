@@ -17,6 +17,7 @@ public:
     void BackOnClick(int stage);
     void TextBoxOnClick(int stage);
     void OnKeyDown(int keyCode) override;
+    void WriteFile(const std::string name);
 };
 
 #endif   // WINSCENE_HPP

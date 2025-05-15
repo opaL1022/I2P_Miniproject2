@@ -146,6 +146,16 @@ void PlayScene::Update(float deltaTime) {
                 delete UIGroup;
                 delete imgTarget;*/
                 // Win.
+                std::ofstream record("C:\\Users\\white\\Documents\\GitHub\\I2P_Miniproject2\\2025_I2P2_TowerDefense-main\\Resource\\scoreboard.txt", std::ios::app);
+                if(record.is_open())
+                {
+                    record << money << std::endl;
+                    record.close();
+                }
+                else
+                {
+                    Engine::LOG(Engine::ERROR) << "file create failed.";
+                }
                 Engine::GameEngine::GetInstance().ChangeScene("win");
             }
             continue;

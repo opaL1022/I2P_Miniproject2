@@ -1,4 +1,4 @@
-//TODO implement the ScoreBoardScene
+//DONE implement the ScoreBoardScene
 #include <allegro5/allegro_audio.h>
 #include <functional>
 #include <memory>
@@ -27,12 +27,14 @@ void ScoreBoardScene::Initialize() {
         std::string score="";
         while (std::getline(record, line)) 
         {
-            name = line;
-            std::getline(record, line);
             score = line;
-            names.push_back(name);
-            scores.push_back(score);
+            std::getline(record, line);
+            name = line;
+            name_scores.push_back(std::make_pair(name, score));
         }
+        std::sort(name_scores.begin(), name_scores.end(), [](const std::pair<std::string, std::string> &a, const std::pair<std::string, std::string> &b) {
+            return std::stoi(a.second) > std::stoi(b.second);
+        });
         record.close();
     }
     else
@@ -71,12 +73,12 @@ void ScoreBoardScene::Initialize() {
 
     for(int i = 0; i < pagesize; i++)
     {
-        if(i==names.size())
+        if(i==name_scores.size())
         {
             break;
         }
-        const std::string name = names[i];
-        const std::string score = scores[i];
+        const std::string name = (name_scores[i]).first;
+        const std::string score = (name_scores[i]).second;
         label = new Engine::Label(name, "pirulen.ttf", 48, halfW - 200, 100 + i * 100, 255, 255, 255, 255, 0.5, 0.5);
         UIGroup->AddNewObject(label);
         labels.push_back(label);
@@ -108,8 +110,8 @@ void ScoreBoardScene::PrevOnClick(int stage) {
         int pos = 0;
         for(int i = curpage * pagesize; i < (curpage + 1) * pagesize; i++, pos++)
         {
-            const std::string name = names[i];
-            const std::string score = scores[i];
+            const std::string name = (name_scores[i]).first;
+            const std::string score = (name_scores[i]).second;
             label = new Engine::Label(name, "pirulen.ttf", 48, halfW - 200, 100 + pos * 100, 255, 255, 255, 255, 0.5, 0.5);
             UIGroup->AddNewObject(label);
             labels.push_back(label);
@@ -120,7 +122,7 @@ void ScoreBoardScene::PrevOnClick(int stage) {
     }
 }
 void ScoreBoardScene::NextOnClick(int stage) {
-    if(curpage+1<(names.size()+pagesize-1)/pagesize)
+    if(curpage+1<(name_scores.size()+pagesize-1)/pagesize)
     {
         Engine::Label *label;
         curpage++;
@@ -132,10 +134,10 @@ void ScoreBoardScene::NextOnClick(int stage) {
         }
 
         int pos = 0;
-        for(int i = curpage * pagesize; i < std::min((curpage + 1) * pagesize, (int)names.size()); i++, pos++)
+        for(int i = curpage * pagesize; i < std::min((curpage + 1) * pagesize, (int)name_scores.size()); i++, pos++)
         {
-            const std::string name = names[i];
-            const std::string score = scores[i];
+            const std::string name = (name_scores[i]).first;
+            const std::string score = (name_scores[i]).second;
             label = new Engine::Label(name, "pirulen.ttf", 48, halfW - 200, 100 + pos * 100, 255, 255, 255, 255, 0.5, 0.5);
             UIGroup->AddNewObject(label);
             labels.push_back(label);
