@@ -112,6 +112,13 @@ void Enemy::Update(float deltaTime) {
         }
     }
     Rotation = atan2(Velocity.y, Velocity.x);
+    if(burntime>0)
+    {
+        Engine::LOG(Engine::DEBUGGING) << "Burning";
+        Hit(1.0f * deltaTime);
+        burntime -= deltaTime;
+    }
+    burntime = std::max(0.0f, burntime);
     Sprite::Update(deltaTime);
 }
 void Enemy::Draw() const {
