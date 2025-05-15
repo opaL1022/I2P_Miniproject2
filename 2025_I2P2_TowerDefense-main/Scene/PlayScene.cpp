@@ -12,6 +12,7 @@
 #include "Enemy/SoldierEnemy.hpp"
 #include "Enemy/PlaneEnemy.hpp"
 #include "Enemy/TankEnemy.hpp"
+#include "Enemy/BossEnemy.hpp"
 #include "Engine/AudioHelper.hpp"
 #include "Engine/GameEngine.hpp"
 #include "Engine/Group.hpp"
@@ -146,6 +147,7 @@ void PlayScene::Update(float deltaTime) {
                 delete UIGroup;
                 delete imgTarget;*/
                 // Win.
+                //TODO design better score formula.
                 std::ofstream record("C:\\Users\\white\\Documents\\GitHub\\I2P_Miniproject2\\2025_I2P2_TowerDefense-main\\Resource\\scoreboard.txt", std::ios::app);
                 if(record.is_open())
                 {
@@ -177,6 +179,9 @@ void PlayScene::Update(float deltaTime) {
                 break;
             case 3:
                 EnemyGroup->AddNewObject(enemy = new TankEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
+                break;
+            case 4:
+                EnemyGroup->AddNewObject(enemy = new BossEnemy(SpawnCoordinate.x, SpawnCoordinate.y));
                 break;
             default:
                 continue;
