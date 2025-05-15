@@ -4,6 +4,7 @@
 #include "Engine/AudioHelper.hpp"
 #include "Engine/GameEngine.hpp"
 #include "Engine/Point.hpp"
+#include "Engine/LOG.hpp"
 #include "PlayScene.hpp"
 #include "UI/Component/Image.hpp"
 #include "UI/Component/ImageButton.hpp"
@@ -28,7 +29,7 @@ void WinScene::Initialize() {
     btn = new Engine::ImageButton("win/dirt.png", "win/floor.png", halfW - 300, halfH+100, 600, 100);
     btn->SetOnClickCallback(std::bind(&WinScene::TextBoxOnClick, this, 3));
     AddNewControlObject(btn);
-    textbox = new Engine::Label("Enter your name", "pirulen.ttf", 36, halfW, halfH+150, 0, 0, 0, 255, 0.5, 0.5);
+    textbox = new Engine::Label("", "pirulen.ttf", 36, halfW, halfH+150, 0, 0, 0, 255, 0.5, 0.5);
     AddNewObject(textbox);
 
     bgmId = AudioHelper::PlayAudio("win.wav");
@@ -47,15 +48,56 @@ void WinScene::Update(float deltaTime) {
 }
 void WinScene::BackOnClick(int stage) {
     // Change to select scene.
+    WriteFile(textbox->Text);
     Engine::GameEngine::GetInstance().ChangeScene("stage-select");
 }
 void WinScene::TextBoxOnClick(int stage) {
     // Change to select scene.
-
+    WriteFile(textbox->Text);
     Engine::GameEngine::GetInstance().ChangeScene("scoreboard");
 }
-void KeyOnDown(int keyCode)
+void WinScene::OnKeyDown(int keyCode)
 {
-    
+    if(keyCode <= 26)
+    {
+        if(textbox->Text.size() < 10)
+        {
+            textbox->Text += (char)(keyCode + 96);
+        }
+        else
+        {
+            Engine::LOG(Engine::INFO) << "Name too long";
+        }
+    }
+    else if(keyCode == ALLEGRO_KEY_BACKSPACE)
+    {
+        textbox->Text = textbox->Text.substr(0, textbox->Text.size()-1);
+    }
+    else if(keyCode == ALLEGRO_KEY_SPACE)
+    {
+        textbox->Text += ' ';
+    }
+    else if(keyCode == ALLEGRO_KEY_ENTER)
+    {
+        if(textbox->Text.size() == 0)
+        {
+            textbox->Text = "UNKNOWN";
+        }
+        WriteFile(textbox->Text);
+        Engine::GameEngine::GetInstance().ChangeScene("stage-select");
+    }
 }
-//TODO add text box to enter name and change to scoreboard scene
+void WinScene::WriteFile(const std::string name)
+{
+    std::ofstream record("C:\\Users\\white\\Documents\\GitHub\\I2P_Miniproject2\\2025_I2P2_TowerDefense-main\\Resource\\scoreboard.txt", std::ios::app);
+    if(record.is_open())
+    {
+        record << name << std::endl;
+        record.close();
+    }
+    else
+    {
+        Engine::LOG(Engine::ERROR) << "file create failed.";
+    }
+}
+//DONE add text box to enter name and change to scoreboard scene

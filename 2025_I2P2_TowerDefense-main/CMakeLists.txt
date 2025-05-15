@@ -29,6 +29,8 @@ add_executable(2025_I2P2_TowerDefense
     Enemy/PlaneEnemy.hpp
     Enemy/TankEnemy.cpp
     Enemy/TankEnemy.hpp
+    Enemy/BossEnemy.cpp
+    Enemy/BossEnemy.hpp
 
     Engine/Allegro5Exception.cpp
     Engine/Allegro5Exception.hpp
@@ -84,6 +86,8 @@ add_executable(2025_I2P2_TowerDefense
     UI/Animation/DirtyEffect.hpp
     UI/Animation/ExplosionEffect.cpp
     UI/Animation/ExplosionEffect.hpp
+    UI/Animation/HealthEffect.cpp
+    UI/Animation/HealthEffect.hpp
     UI/Animation/Plane.cpp
     UI/Animation/Plane.hpp
 

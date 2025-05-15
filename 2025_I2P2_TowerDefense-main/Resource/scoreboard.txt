@@ -1,3 +1,4 @@
+0
 XiaoMin
 10
 DaNiu
@@ -21,4 +22,7 @@ XiaoWang
 XiaoLiang
 70
 Daniel
-80
+20905
+erc
+20905
+fdasfsfasf
