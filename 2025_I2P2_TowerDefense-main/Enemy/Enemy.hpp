@@ -22,7 +22,6 @@ protected:
 
 public:
     float reachEndTime;
-    std::list<Enemy *> lockedAlliance;
     std::list<Turret *> lockedTurrets;
     std::list<Bullet *> lockedBullets;
     Enemy(std::string img, float x, float y, float radius, float speed, float hp, int money);
