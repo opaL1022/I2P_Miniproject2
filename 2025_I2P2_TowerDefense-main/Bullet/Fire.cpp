@@ -18,6 +18,6 @@ void Fire::OnExplode(Enemy *enemy) {
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(2, 5);
     getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/bullet-6.png", dist(rng), enemy->Position.x, enemy->Position.y));
-    enemy->burntime = 10.0f;
+    enemy->burntime = 5.0f;
 }
 //TODO implement Fire for FireTurret

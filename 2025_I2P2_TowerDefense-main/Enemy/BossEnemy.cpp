@@ -37,6 +37,14 @@ void BossEnemy::Update(float deltaTime) {
         Heal();
         reload = cooldown;
     }
+    if(burntime>0)
+    {
+        head.Tint = al_map_rgba(255, 128, 128, 255);
+    }
+    else
+    {
+        head.Tint = al_map_rgba(255, 255, 255, 255);
+    }
 }
 void BossEnemy::Heal()
 {
