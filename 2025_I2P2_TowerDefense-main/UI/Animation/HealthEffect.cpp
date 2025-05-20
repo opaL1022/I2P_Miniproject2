@@ -26,4 +26,4 @@ void HealthEffect::Update(float deltaTime) {
     bmp = bmps[phase];
     Sprite::Update(deltaTime);
 }
-//TODO make health effect
+//DONE make health effect

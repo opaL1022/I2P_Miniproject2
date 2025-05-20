@@ -20,4 +20,4 @@ void Fire::OnExplode(Enemy *enemy) {
     getPlayScene()->GroundEffectGroup->AddNewObject(new DirtyEffect("play/bullet-6.png", dist(rng), enemy->Position.x, enemy->Position.y));
     enemy->burntime = 5.0f;
 }
-//TODO implement Fire for FireTurret
+//DONE implement Fire for FireTurret

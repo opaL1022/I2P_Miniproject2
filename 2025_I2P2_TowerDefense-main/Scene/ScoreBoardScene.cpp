@@ -88,6 +88,8 @@ void ScoreBoardScene::Initialize() {
     }
 }
 void ScoreBoardScene::Terminate() {
+    labels.clear();
+    name_scores.clear();
     AudioHelper::StopSample(bgmInstance);
     bgmInstance = std::shared_ptr<ALLEGRO_SAMPLE_INSTANCE>();
     IScene::Terminate();

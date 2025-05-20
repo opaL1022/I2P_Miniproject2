@@ -20,6 +20,6 @@ void FireTurret::CreateBullet() {
     Engine::Point normalized = diff.Normalize();
     // Change bullet position to the front of the gun barrel.
     getPlayScene()->BulletGroup->AddNewObject(new Fire(Position + normalized * 36, diff, rotation, this));
-    AudioHelper::PlayAudio("laser.wav");
+    AudioHelper::PlayAudio("fireball-whoosh.wav");
 }
-//TODO implement FireTurret
+//DONE implement FireTurret
