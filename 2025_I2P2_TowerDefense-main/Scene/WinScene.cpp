@@ -12,6 +12,8 @@
 #include "WinScene.hpp"
 
 void WinScene::Initialize() {
+
+    score = std::to_string(dynamic_cast<PlayScene *>(Engine::GameEngine::GetInstance().GetScene("play"))->GetMoney());
     ticks = 0;
     int w = Engine::GameEngine::GetInstance().GetScreenSize().x;
     int h = Engine::GameEngine::GetInstance().GetScreenSize().y;
@@ -48,11 +50,15 @@ void WinScene::Update(float deltaTime) {
 }
 void WinScene::BackOnClick(int stage) {
     // Change to select scene.
-    WriteFile(textbox->Text);
     Engine::GameEngine::GetInstance().ChangeScene("stage-select");
 }
 void WinScene::TextBoxOnClick(int stage) {
     // Change to select scene.
+    if(textbox->Text.size() == 0)
+    {
+        textbox->Text = "UNKNOWN";
+    }
+    WriteFile(score);
     WriteFile(textbox->Text);
     Engine::GameEngine::GetInstance().ChangeScene("scoreboard");
 }
@@ -83,16 +89,17 @@ void WinScene::OnKeyDown(int keyCode)
         {
             textbox->Text = "UNKNOWN";
         }
+        WriteFile(score);
         WriteFile(textbox->Text);
         Engine::GameEngine::GetInstance().ChangeScene("stage-select");
     }
 }
-void WinScene::WriteFile(const std::string name)
+void WinScene::WriteFile(const std::string str)
 {
     std::ofstream record("C:\\Users\\white\\Documents\\GitHub\\I2P_Miniproject2\\2025_I2P2_TowerDefense-main\\Resource\\scoreboard.txt", std::ios::app);
     if(record.is_open())
     {
-        record << name << std::endl;
+        record << str << std::endl;
         record.close();
     }
     else

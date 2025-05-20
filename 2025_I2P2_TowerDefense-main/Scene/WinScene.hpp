@@ -8,6 +8,7 @@ private:
     float ticks;
     ALLEGRO_SAMPLE_ID bgmId;
     Engine::Label *textbox;
+    std::string score;
 
 public:
     explicit WinScene() = default;

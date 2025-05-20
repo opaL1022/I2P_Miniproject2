@@ -26,5 +26,13 @@ void TankEnemy::Update(float deltaTime) {
         std::uniform_real_distribution<> distRadian(-ALLEGRO_PI, ALLEGRO_PI);
         targetRotation = distRadian(rng);
     }
+    if(burntime>0)
+    {
+        head.Tint = al_map_rgba(255, 128, 128, 255);
+    }
+    else
+    {
+        head.Tint = al_map_rgba(255, 255, 255, 255);
+    }
     head.Rotation = (head.Rotation + deltaTime * targetRotation) / (1 + deltaTime);
 }

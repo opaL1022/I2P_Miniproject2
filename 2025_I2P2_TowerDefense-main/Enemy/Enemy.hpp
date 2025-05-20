@@ -21,6 +21,7 @@ protected:
     virtual void OnExplode();
 
 public:
+    float burntime = 0.0f;
     float reachEndTime;
     std::list<Turret *> lockedTurrets;
     std::list<Bullet *> lockedBullets;
